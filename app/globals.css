@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  @apply bg-white dark:bg-gray-900 text-black dark:text-white transition-colors duration-200;
+  @apply bg-white dark:bg-gray-950 text-black dark:text-white transition-colors duration-200;
 }
 
 @keyframes colorChange {
