@@ -1,9 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import TeamMember from './components/TeamMember'
-import Testimonial from './components/Testimonial'
-import FAQ from './components/FAQ'
 import Image from 'next/image'
 
 export default function Home() {
