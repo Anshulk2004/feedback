@@ -15,12 +15,12 @@ export default function Home() {
 
   const faqs = [
     {
-      question: 'What kind of feedback can I collect with this app?',
-      answer: 'This app allows you to gather a wide range of feedback, including customer reviews, employee performance evaluations, product suggestions, and even internal team feedback.',
+      question: 'What kind of feedback can I collect with this website?',
+      answer: 'This website allows you to gather a wide range of feedback, including customer reviews, employee performance evaluations, product suggestions, and even internal team feedback.',
     },
     {
-      question: 'How does the app ensure the authenticity of feedback?',
-      answer: '[Your App Name] utilizes various methods to promote genuine feedback. This includes integration with social media accounts, email verification, and options for flagging suspicious reviews.',
+      question: 'How does the website ensure the authenticity of feedback?',
+      answer: 'The website utilizes various methods to promote genuine feedback. This includes integration with social media accounts, email verification, and options for flagging suspicious reviews.',
     },
     {
       question: 'Is there a free plan available?',
@@ -33,6 +33,24 @@ export default function Home() {
     {
       question: 'What happens once I receive feedback?',
       answer: 'The app helps you analyze and categorize your feedback. You can easily identify trends, respond to comments, and track the impact of your actions based on feedback received.',
+    },
+  ];
+
+  const articles = [
+    {
+      title: 'The Importance of Constructive Feedback',
+      link: 'https://niftypm.com/blog/constructive-feedback/',
+      image: '/feedback.svg',
+    },
+    {
+      title: 'How to Foster a Feedback-Friendly Culture',
+      link: 'https://www.kippy.cloud/post/tips-for-fostering-a-proactive-feedback-culture-in-the-workplace',
+      image: '/feedback.svg',
+    },
+    {
+      title: 'Analyzing Peer Feedback: Best Practices',
+      link: 'https://www.blog.intedashboard.com/blogs/peer-evaluation/best-practices',
+      image: '/feedback.svg',
     },
   ];
 
@@ -217,102 +235,50 @@ export default function Home() {
       </button>
     </section>
 
-    <section className="mb-12 flex">      
-      <div className="w-1/3 mr-8">
-        <img src="/background.svg" alt="Logo" className="h-auto w-full" />
-      </div>      
-      <div className="w-2/3">
-        <h2 className="text-3xl text-center font-semibold mb-4">
-        ⭐Frequently Asked Questions⭐
-        </h2>
-        <div>
-          {faqs.map((faq, index) => (
-            <FAQ
-              key={index}
-              question={faq.question}
-              answer={faq.answer}
-              isOpen={activeAccordion === index}
-              onClick={() => toggleAccordion(index)}
-            />
-          ))}
-        </div>
+    <section className="mb-12">
+      <h2 className="text-3xl font-semibold mb-8 text-center">Learn More</h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {articles.map((article, index) => (
+          <div
+            key={index}
+            className="relative bg-white bg-opacity-70 backdrop-blur-md p-4 rounded-lg shadow-md transition-transform duration-300 hover:scale-105"
+          >
+            <a href={article.link} target="_blank" rel="noopener noreferrer" className="block w-full h-full">
+              <h3 className="text-xl text-blue-600 font-bold text-center mb-2">{article.title}</h3>
+              <img src={article.image} alt={article.title} className="w-full h-48 object-cover rounded-lg" />
+            </a>
+          </div>
+        ))}
       </div>
     </section>
+      
 
-      <section className="mb-12">
-        <h2 className="text-3xl font-semibold mb-4">Learn More</h2>
-        <ul className="list-disc list-inside">
-          <li>
-            <a href="#" className="text-blue-500 hover:underline">
-              The Importance of Constructive Feedback
-            </a>
-          </li>
-          <li>
-            <a href="#" className="text-blue-500 hover:underline">
-              How to Foster a Feedback-Friendly Culture
-            </a>
-          </li>
-          <li>
-            <a href="#" className="text-blue-500 hover:underline">
-              Analyzing Peer Feedback: Best Practices
-            </a>
-          </li>
-        </ul>
-      </section>
+    <section className="relative mb-10 bg-cover bg-center" style={{ backgroundImage: "url('/feedback1.svg')"}}>
+  <div className="absolute inset-0 bg-black opacity-10"></div>
+  <div className="relative max-w-8xl mx-auto p-8 flex flex-col md:flex-row justify-center items-center">    
+    <form className="bg-white bg-opacity-70 backdrop-blur-lg p-6 rounded-lg shadow-md w-full md:w-2/3">
+      <div className="mb-4">
+        <label htmlFor="name" className="block text-gray-700 font-bold mb-2">Name</label>
+        <input type="text" id="name" className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required />
+      </div>
+      <div className="mb-4">
+        <label htmlFor="email" className="block text-gray-700 font-bold mb-2">Email</label>
+        <input type="email" id="email" className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required />
+      </div>
+      <div className="mb-4">
+        <label htmlFor="message" className="block text-gray-700 font-bold mb-2">Message</label>
+        <textarea id="message" rows={4} className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+      </div>
+      <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition duration-300">Send Message</button>
+    </form>
+    <div className="mb-20 md:mb-15  text-black w-full md:w-1/2">
+      <h2 className="text-5xl font-extrabold text-right mb-3 ">
+        Contact Us !
+      </h2>
+    </div>
+  </div>
+</section>
 
-      <section className="mb-12">
-        <h2 className="text-3xl font-semibold mb-4">Get in Touch</h2>
-        <form className="max-w-md mx-auto">
-          <div className="mb-4">
-            <label
-              htmlFor="name"
-              className="block text-gray-700 font-bold mb-2"
-            >
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              htmlFor="email"
-              className="block text-gray-700 font-bold mb-2"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              htmlFor="message"
-              className="block text-gray-700 font-bold mb-2"
-            >
-              Message
-            </label>
-            <textarea
-              id="message"
-              rows={4}
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300"
-          >
-            Send Message
-          </button>
-        </form>
-      </section>
     </main>
   );
 }

@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import RatingSection from './RatingSection'
 import { analyzeSentiment } from '../lib/sentimentAnalysis'
+import axios from 'axios'
 
 type Colleague = {
   id: number
@@ -30,11 +31,15 @@ export default function FeedbackForm({ colleague }: Props) {
     e.preventDefault()
     const sentiment = await analyzeSentiment(feedback)
     if (sentiment < 0) {
-      alert('Please ensure your feedback is constructive and positive.')
-      return
+      alert('Write feedback')      
     }
-    // Submit feedback logic here
-    console.log('Feedback submitted', { colleague, feedback, isAnonymous, ratings })
+    let data :any = { user:colleague.name, feedback: feedback, communication:ratings.communication,
+      teamwork: ratings.teamwork, leadership: ratings.leadership, problem: ratings.problemSolving, creativity: ratings.creativity}
+  
+      axios.post("/api/feedback",data = data).then((response : any) =>{
+        console.log("Feedback saved successfully", response);
+        window.location.reload()
+      });    
   }
 
   const handleSaveDraft = () => {
@@ -43,16 +48,16 @@ export default function FeedbackForm({ colleague }: Props) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-2">
       <h2 className="text-xl font-semibold dark:text-white">Feedback for {colleague.name}</h2>
       
       <div>
-        <label htmlFor="feedback" className="block mb-2 dark:text-gray-300">Your Feedback</label>
+        <label htmlFor="feedback" className="block text-m mb-2 dark:text-gray-300">Your Feedback</label>
         <textarea
           id="feedback"
           value={feedback}
           onChange={(e) => setFeedback(e.target.value)}
-          className="w-full p-2 border rounded dark:bg-gray-700 dark:text-white:border-gray-600"
+          className="w-full p-4 border  dark:bg-gray-700 dark:text-white:border-gray-300 rounded-lg"
           rows={5}
           required
         />
@@ -72,11 +77,11 @@ export default function FeedbackForm({ colleague }: Props) {
         </label>
       </div>
 
-      <div className="flex space-x-4">
-        <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700">
+      <div className="flex space-x-5 ">
+        <button type="submit" className="px-6 py-3 bg-blue-500 text-white rounded hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-900 rounded-lg">
           Submit Feedback
         </button>
-        <button type="button" onClick={handleSaveDraft} className="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 dark:bg-gray-600 dark:text-white dark:hover:bg-gray-700">
+        <button type="button" onClick={handleSaveDraft} className="px-6 py-3 bg-blue-500 text-white rounded hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-900 rounded-lg">
           Save as Draft
         </button>
       </div>
