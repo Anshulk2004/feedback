@@ -13,18 +13,17 @@ export default function FeedbackPage() {
   const [mostValuedColleagues, setMostValuedColleagues] = useState([])
 
   useEffect(() => {
-    // Fetch colleagues and most valued colleagues data
-    // This is a placeholder for actual API calls
+    
     setColleagues([
       { id: 1, name: 'John Doe', role: 'Developer', relationship: 'Team Member' },
       { id: 2, name: 'Jane Smith', role: 'Designer', relationship: 'Team Lead' },
-      // Add more colleagues as needed
+      
     ])
 
     setMostValuedColleagues([
       { id: 1, name: 'Alice Johnson', role: 'Project Manager', score: 4.8 },
       { id: 2, name: 'Bob Williams', role: 'Senior Developer', score: 4.7 },
-      // Add more valued colleagues as needed
+      
     ])
   }, [])
 

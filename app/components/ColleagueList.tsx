@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 type Colleague = {
   id: number
   name: string

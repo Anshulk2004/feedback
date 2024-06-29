@@ -14,25 +14,51 @@ export default function Home() {
 
   return (
     <main className="container mx-auto px-4 py-8">
-      {/* Purpose and Brand Identity */}
-      <section className="mb-12">
-        <h1 className="text-4xl font-bold mb-4">Peer Feedback Analysis App</h1>
-        <p className="text-xl">
-          Revolutionizing the way companies collect and analyze peer feedback for healthier work environments.
-        </p>
+      
+      <section className="mb-12 text-center">
+        <h1 className="text-5xl font-extrabold mb-4 animate-colorChange dark:animate-darkColorChange">
+          Empowering Customers, Building Better Businesses.
+        </h1>
       </section>
 
-      {/* Current Feedback Issues */}
-      <section className="mb-12">
-        <h2 className="text-3xl font-semibold mb-4">Current Feedback Challenges</h2>
-        <ul className="list-disc list-inside">
-          <li>Lack of anonymity leading to biased feedback</li>
-          <li>Inefficient manual processes for collecting and analyzing data</li>
-          <li>Difficulty in identifying actionable insights from feedback</li>
-        </ul>
-      </section>
+      
+      <div className="relative bg-cover bg-center bg-no-repeat hazy-bg" style={{ backgroundImage: 'url(/background.svg)' }}>
+        <div className="bg-overlay p-8">
+          <section className="mb-12">
+            <h1 className="text-4xl font-bold mb-4">Feedback Analysis App</h1>
+            <p className="text-xl">
+              Unveiling the Voice of Customers: Why Feedback Matters for Everyone
+            </p>
+          </section>
 
-      {/* Team Introduction */}
+          
+          <section className="mb-12">
+            <h2 className="text-3xl font-semibold mb-4">Current Feedback Challenges</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                <h3 className="text-xl font-semibold mb-2">Fake Reviews: A Market Menace</h3>
+                <p className="text-gray-900 dark:text-gray-200">
+                  Fabricated reviews distort customer perception, hindering trust and harming legitimate businesses.
+                </p>
+              </div>
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                <h3 className="text-xl font-semibold mb-2">Current Issues</h3>
+                <p className="text-gray-900 dark:text-gray-200">
+                  Many companies struggle with collecting honest feedback. Manual processes are time-consuming, and automated systems are susceptible to manipulation.
+                </p>
+              </div>
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                <h3 className="text-xl font-semibold mb-2">Our Solutions</h3>
+                <p className="text-gray-900 dark:text-gray-200">
+                  We advocate for a multi-pronged approach, including verification methods, transparent review guidelines, and encouraging thoughtful, detailed feedback.
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      
       <section className="mb-12">
         <h2 className="text-3xl font-semibold mb-4">Our Team</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -42,7 +68,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
+      
       <section className="mb-12">
         <h2 className="text-3xl font-semibold mb-4">What Our Users Say</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -59,7 +85,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Call to Action */}
+      
       <section className="mb-12 text-center">
         <h2 className="text-3xl font-semibold mb-4">Ready to Transform Your Feedback Process?</h2>
         <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300">
@@ -67,7 +93,7 @@ export default function Home() {
         </button>
       </section>
 
-      {/* FAQ Section */}
+      
       <section className="mb-12">
         <h2 className="text-3xl font-semibold mb-4">Frequently Asked Questions</h2>
         <FAQ
@@ -90,7 +116,7 @@ export default function Home() {
         />
       </section>
 
-      {/* Blog Links */}
+      
       <section className="mb-12">
         <h2 className="text-3xl font-semibold mb-4">Learn More</h2>
         <ul className="list-disc list-inside">
@@ -100,7 +126,6 @@ export default function Home() {
         </ul>
       </section>
 
-      {/* Contact Form */}
       <section className="mb-12">
         <h2 className="text-3xl font-semibold mb-4">Get in Touch</h2>
         <form className="max-w-md mx-auto">

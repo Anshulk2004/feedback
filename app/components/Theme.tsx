@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useTheme } from 'next-themes'
 
-export default function ThemeSwitcher() {
+export default function ThemeSwitch() {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
 
@@ -13,10 +13,10 @@ export default function ThemeSwitcher() {
 
   return (
     <button
-      className="p-2 rounded-md hover:ring-2 hover:ring-gray-300"
+      className="px-4 py-2 rounded-md bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white hover:ring-2 hover:ring-gray-300 transition-all duration-300 ease-in-out"
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
     >
-      {theme === 'light' ? '🌙' : '☀️'}
+      {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
     </button>
   )
 }
