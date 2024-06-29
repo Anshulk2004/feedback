@@ -13,6 +13,29 @@ export default function Home() {
     setActiveAccordion(activeAccordion === index ? null : index)
   }
 
+  const faqs = [
+    {
+      question: 'What kind of feedback can I collect with this app?',
+      answer: 'This app allows you to gather a wide range of feedback, including customer reviews, employee performance evaluations, product suggestions, and even internal team feedback.',
+    },
+    {
+      question: 'How does the app ensure the authenticity of feedback?',
+      answer: '[Your App Name] utilizes various methods to promote genuine feedback. This includes integration with social media accounts, email verification, and options for flagging suspicious reviews.',
+    },
+    {
+      question: 'Is there a free plan available?',
+      answer: 'Yes, we offer a free plan with basic features to help you try out the app. Paid plans offer additional functionalities like advanced analytics and custom branding.',
+    },
+    {
+      question: 'How can I encourage more people to leave feedback?',
+      answer: 'The app provides tools to make feedback easy and convenient. You can send personalized reminders, offer incentives for participation, and showcase positive feedback publicly (with permission).',
+    },
+    {
+      question: 'What happens once I receive feedback?',
+      answer: 'The app helps you analyze and categorize your feedback. You can easily identify trends, respond to comments, and track the impact of your actions based on feedback received.',
+    },
+  ];
+
   return (
     <main className="container mx-auto px-4 py-8">
       <section className="mb-10 text-center">
@@ -194,29 +217,27 @@ export default function Home() {
       </button>
     </section>
 
-      <section className="mb-12">
-        <h2 className="text-3xl font-semibold mb-4">
-          Frequently Asked Questions
+    <section className="mb-12 flex">      
+      <div className="w-1/3 mr-8">
+        <img src="/background.svg" alt="Logo" className="h-auto w-full" />
+      </div>      
+      <div className="w-2/3">
+        <h2 className="text-3xl text-center font-semibold mb-4">
+        ⭐Frequently Asked Questions⭐
         </h2>
-        <FAQ
-          question="How does the app ensure anonymity?"
-          answer="Our app uses advanced encryption and data anonymization techniques to ensure that all feedback remains completely anonymous."
-          isOpen={activeAccordion === 0}
-          onClick={() => toggleAccordion(0)}
-        />
-        <FAQ
-          question="Can I customize the feedback questions?"
-          answer="Yes, you can fully customize the feedback questions to suit your organization's specific needs and goals."
-          isOpen={activeAccordion === 1}
-          onClick={() => toggleAccordion(1)}
-        />
-        <FAQ
-          question="How long does it take to implement the system?"
-          answer="Most organizations can implement our system within 1-2 weeks, including setup and initial training."
-          isOpen={activeAccordion === 2}
-          onClick={() => toggleAccordion(2)}
-        />
-      </section>
+        <div>
+          {faqs.map((faq, index) => (
+            <FAQ
+              key={index}
+              question={faq.question}
+              answer={faq.answer}
+              isOpen={activeAccordion === index}
+              onClick={() => toggleAccordion(index)}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
 
       <section className="mb-12">
         <h2 className="text-3xl font-semibold mb-4">Learn More</h2>
